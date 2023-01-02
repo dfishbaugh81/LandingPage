@@ -16,6 +16,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Logging;
 
+
+
 namespace LandingPage
 {
 
@@ -23,7 +25,15 @@ namespace LandingPage
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            try
+            {
+                Configuration = configuration;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -70,7 +80,7 @@ namespace LandingPage
 
             services.AddRazorPages()
                     .AddMicrosoftIdentityUI();
-            services.AddApplicationInsightsTelemetry(Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
+            //services.AddApplicationInsightsTelemetry(Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
