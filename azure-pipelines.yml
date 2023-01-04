@@ -1,4 +1,11 @@
 # .NET Desktop
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(1)(8cfb99d7-3e7e-4e37-8550-2e768b245935)'
+    appType: 'webApp'
+    appName: 'DoalityLandingPage001'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'zipDeploy'
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
