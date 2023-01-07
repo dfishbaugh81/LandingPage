@@ -10,11 +10,11 @@
     "src": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "https://doalitylandingpage.azurewebsites.net",
+      "launchUrl": "https://doalitylandingpage001.azurewebsites.net",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://doalitylandingpage.azurewebsites.net",
+      "applicationUrl": "https://doalitylandingpage001.azurewebsites.net",
       "dotnetRunMessages": "true",
       "nativeDebugging": true
     },
