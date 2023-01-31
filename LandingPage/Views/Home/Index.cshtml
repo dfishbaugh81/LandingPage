@@ -19,13 +19,15 @@ else
 
         <table class="main-table">
             <tbody>
+                <tr><td class="main-td">Fulfillment ID</td><td>@Model.FulId</td></tr>
                 <tr><td class="main-td">Current user</td><td>@Model.DisplayName</td></tr>
                 <tr><td class="main-td">Email</td><td>@Model.Email</td></tr>
                 <tr><td class="main-td">Subscription name</td><td>@Model.SubscriptionName</td></tr>
-                <tr><td><class="main-td">Quantity</td><td>@Model.Quantity</td></tr>
+                <tr><td class ="main-td">Quantity</td><td>@Model.Quantity</td></tr>
                 <tr><td class="main-td">Plan name</td><td>@Model.PlanName</td></tr>
                 <tr><td class="main-td">Subscription State</td><td>@Model.FulfillmentStatus</td></tr>
                 <tr><td class="main-td">Tenant ID</td><td>@Model.TenantId</td></tr>
+                <tr><td class="main-td">Purchase ID Token</td><td>@Model.PurchaseIdToken</td></tr>
             </tbody>
         </table>
 
@@ -40,7 +42,7 @@ else
                         @Html.ActionLink("Notify pubisher to activate account", "Index", "Submit")
                     </li>
                 }
-                
+
                 @if (Model.FulfillmentStatus == Microsoft.Marketplace.SaaS.Models.SubscriptionStatusEnum.Subscribed)
                 {
                     <li>
@@ -50,12 +52,12 @@ else
             </ul>
         </div>
 
-        <hr/>
+        <hr />
 
         <h2>Manage All Subscriptions</h2>
 
         <table class="main-table table-striped">
-            <thead><tr><th>Subscription Name</th><th>Offer ID</th><th>Status</th></tr></thead>
+            <thead><tr><th>Subscription Name</th><th>Offer ID</th><th>Status</th><th>Fulfillment ID</th><th>Qty</th></tr></thead>
             <tbody>
                 @foreach (var subscription in Model.Subscriptions)
                 {
@@ -63,13 +65,16 @@ else
                         <td class="main-td">@Html.ActionLink(@subscription.Name, "Subscription", new { id = @subscription.Id })</td>
                         <td class="main-td">@subscription.OfferId</td>
                         <td>@subscription.SaasSubscriptionStatus.Value</td>
+                        <td>@subscription.Id.Value</td>
+                        <td>@subscription.Quantity</td>
+                        <td>@subscription.</td>
                     </tr>
                 }
             </tbody>
         </table>
 
-        <hr/>
-        
+        <hr />
+
         <h3>Extra Functionality for Publishers</h3>
 
         <p>

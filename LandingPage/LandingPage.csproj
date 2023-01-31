@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <UserSecretsId>aspnet-src-AB80577D-043B-4AD3-AD76-E46A48E72E12</UserSecretsId>
@@ -10,6 +10,8 @@
     <StartupObject>LandingPage.Program</StartupObject>
     <ApplicationInsightsResourceId>/subscriptions/8cfb99d7-3e7e-4e37-8550-2e768b245935/resourceGroups/marketplacedoality/providers/microsoft.insights/components/doality</ApplicationInsightsResourceId>
     <UseWindowsForms>True</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RepositoryUrl>https://github.com/dfishbaugh81/LandingPage</RepositoryUrl>
 
   </PropertyGroup>
 
