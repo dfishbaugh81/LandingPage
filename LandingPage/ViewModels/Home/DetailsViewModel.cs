@@ -8,6 +8,7 @@ namespace LandingPage.ViewModels.Home
 {
     public class DetailsViewModel
     {
+        public IList<Subscription> Subscriptions { get; internal set; }
         public IEnumerable<Claim> UserClaims { get; internal set; }
 
         public User GraphUser {  get; internal set; }

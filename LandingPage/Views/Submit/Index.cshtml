@@ -3,6 +3,17 @@
 <p>
     Thank you for submitting your subscription for activation. It will take 1-3 days for us to activate your account.
 </p>
+<table class="main-table">
+            <tbody>
+                <tr><td class="main-td">Current user</td><td>@Model.DisplayName</td></tr>
+                <tr><td class="main-td">Email</td><td>@Model.Email</td></tr>
+                <tr><td class="main-td">Subscription name</td><td>@Model.SubscriptionName</td></tr>
+                <tr><td class="main-td">Quantity</td><td>@Model.Quantity</td></tr>
+                <tr><td class="main-td">Plan name</td><td>@Model.PlanName</td></tr>
+                <tr><td class="main-td">Subscription State</td><td>@Model.FulfillmentStatus</td></tr>
+                <tr><td class="main-td">Tenant ID</td><td>@Model.TenantId</td></tr>
+            </tbody>
+        </table>
 <p>
     Please watch for an email from us with further details on next steps.
 </p>

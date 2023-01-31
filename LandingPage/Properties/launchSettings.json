@@ -3,6 +3,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": " https://localhost:44391",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -10,16 +11,16 @@
     "src": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "https://doalitylandingpage001.azurewebsites.net",
+      "launchUrl": "https://localhost:44391",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://doalitylandingpage001.azurewebsites.net",
-      "dotnetRunMessages": "true",
+      "applicationUrl": "https://localhost:44391",
+      "dotnetRunMessages": true,
       "nativeDebugging": true
     },
     "WSL": {
-      "commandName": "WSL2",
+      "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "https://localhost:5001",
       "environmentVariables": {
@@ -31,7 +32,7 @@
   },
   "iisSettings": {
     "windowsAuthentication": true,
-    "anonymousAuthentication": true,
+    "anonymousAuthentication": false,
     "iisExpress": {
       "applicationUrl": "https://localhost:44391",
       "sslPort": 44391
