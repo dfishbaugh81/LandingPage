@@ -22,6 +22,7 @@ else
                 <tr><td class="main-td">Current user</td><td>@Model.DisplayName</td></tr>
                 <tr><td class="main-td">Email</td><td>@Model.Email</td></tr>
                 <tr><td class="main-td">Subscription name</td><td>@Model.SubscriptionName</td></tr>
+                <tr><td><class="main-td">Quantity</td><td>@Model.Quantity</td></tr>
                 <tr><td class="main-td">Plan name</td><td>@Model.PlanName</td></tr>
                 <tr><td class="main-td">Subscription State</td><td>@Model.FulfillmentStatus</td></tr>
                 <tr><td class="main-td">Tenant ID</td><td>@Model.TenantId</td></tr>
@@ -48,6 +49,24 @@ else
                 }
             </ul>
         </div>
+
+        <hr/>
+
+        <h2>Manage All Subscriptions</h2>
+
+        <table class="main-table table-striped">
+            <thead><tr><th>Subscription Name</th><th>Offer ID</th><th>Status</th></tr></thead>
+            <tbody>
+                @foreach (var subscription in Model.Subscriptions)
+                {
+                    <tr>
+                        <td class="main-td">@Html.ActionLink(@subscription.Name, "Subscription", new { id = @subscription.Id })</td>
+                        <td class="main-td">@subscription.OfferId</td>
+                        <td>@subscription.SaasSubscriptionStatus.Value</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
         <hr/>
         

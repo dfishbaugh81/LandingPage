@@ -15,7 +15,7 @@ else
         <h2 class="text-info">Landing Page Accessible Data</h2>
 
         <p>
-            The following data comprises a large list of values you may access when building your landing page. Although you won't need them all you have access to this data should you care to use it.
+            The following data comprises a large list of values you may access when building                                                    your landing page. Although you won't need them all you have access to this data should you care to use it.
         </p>
         <p>
             @Html.ActionLink("Go back", "Index", new { token = Model.PurchaseIdToken }) to the
@@ -23,7 +23,25 @@ else
         </p>
 
         <hr/>
+        <h2>Manage All Subscriptions</h2>
 
+        <table class="main-table table-active">
+            <thead><tr><th>Subscription Name</th><th>Offer ID</th><th>Status</th><th>Fulfillment ID</th><th>Qty</th></tr></thead>
+            <tbody>
+                @foreach (var subscription in Model.Subscriptions)
+                {
+                    <tr>
+                        <td class="main-td">@Html.ActionLink(@subscription.Name, "Subscription", new { id = @subscription.Id })</td>
+                        <td class="main-td">@subscription.OfferId</td>
+                        <td>@subscription.SaasSubscriptionStatus.Value</td>
+                        <td>@subscription.Id.Value</td>
+                        <td>@subscription.Quantity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <hr />
 
         <h3>User Claims Values</h3>
         <table class="main-table">

@@ -10,6 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using Microsoft.Marketplace.SaaS.Models;
+using System.Linq;
 
 namespace LandingPage.Controllers
 {
@@ -43,9 +46,23 @@ namespace LandingPage.Controllers
                 return this.View();
             }
 
+           
+
+            // build the model
+            IList<Microsoft.Marketplace.SaaS.Models.Subscription> subscriptionsList = new List<Microsoft.Marketplace.SaaS.Models.Subscription>();
+
+            var subscriptions = _marketplaceSaaSClient.Fulfillment.ListSubscriptionsAsync(cancellationToken: cancellationToken);
+
+            await foreach (var subscription in subscriptions)
+            {
+                subscriptionsList.Add(subscription);
+            }
+
+           
+
             // resolve the subscription using the marketplace purchase id token
             var resolvedSubscription = (await _marketplaceSaaSClient.Fulfillment.ResolveAsync(token, cancellationToken: cancellationToken)).Value;
-            
+
             // get the plans on this subscription
             var subscriptionPlans = (await _marketplaceSaaSClient.Fulfillment.ListAvailablePlansAsync(resolvedSubscription.Id.Value, cancellationToken: cancellationToken)).Value;
 
@@ -62,10 +79,11 @@ namespace LandingPage.Controllers
             // get graph current user data
             var graphApiUser = await _graphServiceClient.Me.Request().GetAsync();
 
-            // build the model
-            var model = new IndexViewModel
+            var model = new IndexViewModel()
             {
+                Subscriptions = subscriptionsList.OrderBy(s => s.Name).ToList<Microsoft.Marketplace.SaaS.Models.Subscription>(),
                 DisplayName = graphApiUser.DisplayName,
+                Quantity = resolvedSubscription.Quantity,
                 Email = graphApiUser.Mail,
                 SubscriptionName = resolvedSubscription.SubscriptionName,
                 FulfillmentStatus = resolvedSubscription.Subscription.SaasSubscriptionStatus.GetValueOrDefault(),
@@ -95,9 +113,20 @@ namespace LandingPage.Controllers
             // get graph current user data
             var graphApiUser = await _graphServiceClient.Me.Request().GetAsync();
 
+            IList<Microsoft.Marketplace.SaaS.Models.Subscription> subscriptionsList = new List<Microsoft.Marketplace.SaaS.Models.Subscription>();
+
+            var subscriptions = _marketplaceSaaSClient.Fulfillment.ListSubscriptionsAsync(cancellationToken: cancellationToken);
+
+            await foreach (var subscription in subscriptions)
+            {
+                subscriptionsList.Add(subscription);
+            }
+
+
             // build the model
             var model = new DetailsViewModel()
             {
+                Subscriptions = subscriptionsList.OrderBy(s => s.Name).ToList<Microsoft.Marketplace.SaaS.Models.Subscription>(),
                 PurchaseIdToken = token,
                 UserClaims = this.User.Claims,
                 GraphUser = graphApiUser,

@@ -5,7 +5,7 @@
     <StartupObject>LandingPage.Program</StartupObject>
     <OutputType>WinExe</OutputType>
 
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-src-AB80577D-043B-4AD3-AD76-E46A48E72E12</UserSecretsId>
     <StartupObject>LandingPage.Program</StartupObject>
     <ApplicationInsightsResourceId>/subscriptions/8cfb99d7-3e7e-4e37-8550-2e768b245935/resourceGroups/marketplacedoality/providers/microsoft.insights/components/doality</ApplicationInsightsResourceId>
@@ -35,8 +35,9 @@
     <PackageReference Include="Microsoft.ApplicationInsights.PerfCounterCollector" Version="2.22.0-beta1" />
     <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer" Version="2.22.0-beta1" />
     <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.22.0-beta1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.10" NoWarn="NU1605" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.10" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="3.1.32" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.22.0-beta1" />
     <PackageReference Include="Microsoft.Identity.Web" Version="1.16.1" />
