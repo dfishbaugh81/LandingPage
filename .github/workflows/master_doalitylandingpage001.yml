@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'DoalityLandingPage001'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BD7EF31A9AF542EB93B4599090798215 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5DE875E97F96426B98B5188E86B23CAF }}
           package: .
