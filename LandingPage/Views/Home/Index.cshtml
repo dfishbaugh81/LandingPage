@@ -40,7 +40,7 @@ else
                 {
                        
                     <li>
-                        <input type='button' value='urlGo' onclick='window.location = "@ViewData.GetViewDataInfo("urlGo").Value";' />  
+                        <input type='button' value='urlGo' onclick=window.location = @ViewData.GetViewDataInfo("urlGo").Value />  
                         <a href=@ViewData.GetViewDataInfo("urlGo").Value name="Active_Click">Activate</a>
                          
                         
