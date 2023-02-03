@@ -9,6 +9,7 @@ namespace LandingPage.ViewModels.Home
     {
 
         public IList<Subscription> Subscriptions { get; internal set; }
+        public Guid? FulId { get; set; }
         public string DisplayName { get; set; }
         public long? Quantity { get; set; }
         public string Email { get; set; }

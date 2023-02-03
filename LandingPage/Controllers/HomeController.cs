@@ -95,6 +95,7 @@ namespace LandingPage.Controllers
             var model = new IndexViewModel()
             {
                 Subscriptions = subscriptionsList.OrderBy(s => s.Name).ToList<Microsoft.Marketplace.SaaS.Models.Subscription>(),
+                FulId = resolvedSubscription.Id,
                 DisplayName = graphApiUser.DisplayName,
                 Quantity = resolvedSubscription.Quantity,
                 Email = graphApiUser.Mail,

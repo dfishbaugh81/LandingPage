@@ -19,6 +19,7 @@ else
 
         <table class="main-table">
             <tbody>
+                <tr><td class="main-td">Fulfillment ID</td><td>@Model.FulId</td></tr>
                 <tr><td class="main-td">Current user</td><td>@Model.DisplayName</td></tr>
                 <tr><td class="main-td">Email</td><td>@Model.Email</td></tr>
                 <tr><td class="main-td">Subscription name</td><td>@Model.SubscriptionName</td></tr>
@@ -75,7 +76,6 @@ else
                         <td>@subscription.SaasSubscriptionStatus.Value</td>
                         <td>@subscription.Id.Value</td>
                         <td>@subscription.Quantity</td>
-                        <td>@subscription.Purchaser.Puid</td>
                     </tr>
                 }
             </tbody>
