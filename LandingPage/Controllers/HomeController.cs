@@ -49,7 +49,7 @@ namespace LandingPage.Controllers
                 return this.View();
             }
 
-
+           
 
             // build the model
             IList<Microsoft.Marketplace.SaaS.Models.Subscription> subscriptionsList = new List<Microsoft.Marketplace.SaaS.Models.Subscription>();
@@ -61,7 +61,7 @@ namespace LandingPage.Controllers
                 subscriptionsList.Add(subscription);
             }
 
-
+           
 
             // resolve the subscription using the marketplace purchase id token
             var resolvedSubscription = (await _marketplaceSaaSClient.Fulfillment.ResolveAsync(token, cancellationToken: cancellationToken)).Value;
@@ -95,7 +95,6 @@ namespace LandingPage.Controllers
             var model = new IndexViewModel()
             {
                 Subscriptions = subscriptionsList.OrderBy(s => s.Name).ToList<Microsoft.Marketplace.SaaS.Models.Subscription>(),
-                FulId = resolvedSubscription.Id,
                 DisplayName = graphApiUser.DisplayName,
                 Quantity = resolvedSubscription.Quantity,
                 Email = graphApiUser.Mail,
