@@ -127,7 +127,7 @@ namespace LandingPage
             // register a MarketplaceSaaaSClient so it can be injected
             services.TryAddScoped<IMarketplaceSaaSClient>(sp =>
             {
-                return new MarketplaceSaaSClient(creds);
+                     return new MarketplaceSaaSClient(creds);
             });
         }
 

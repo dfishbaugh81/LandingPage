@@ -36,11 +36,20 @@ else
 
         <div style="text-align: left">
             <ul>
-                @if (Model.FulfillmentStatus == Microsoft.Marketplace.SaaS.Models.SubscriptionStatusEnum.PendingFulfillmentStart)
+                @while (Model.FulfillmentStatus == Microsoft.Marketplace.SaaS.Models.SubscriptionStatusEnum.PendingFulfillmentStart)
                 {
+                       
                     <li>
-                        @Html.ActionLink("Notify pubisher to activate account", "Index", "Submit")
+                        <input type='button' value='urlGo' onclick='window.location = "@ViewData.GetViewDataInfo("urlGo").Value";' />  
+                        <a href=@ViewData.GetViewDataInfo("urlGo").Value name="Active_Click">Activate</a>
+                         
+                        
+                        
                     </li>
+
+            
+
+                   
                 }
 
                 @if (Model.FulfillmentStatus == Microsoft.Marketplace.SaaS.Models.SubscriptionStatusEnum.Subscribed)

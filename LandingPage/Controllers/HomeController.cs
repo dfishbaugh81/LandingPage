@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using Microsoft.Marketplace.SaaS.Models;
 using System.Linq;
+using System.Text;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System.Net.Http;
 
 namespace LandingPage.Controllers
 {
@@ -76,6 +79,16 @@ namespace LandingPage.Controllers
                 }
             }
 
+
+            var myThisStringBuild = new StringBuilder();
+            myThisStringBuild.Append("https://doality-publisher.azurewebsites.net/Activate/");
+            myThisStringBuild.Append(resolvedSubscription.Id.Value);
+            myThisStringBuild.Append("/dmsopme1");
+
+            var myHtmlHelper = new HttpClient();
+            var postedHttpClient = await myHtmlHelper.PostAsync(myThisStringBuild.ToString(), null);
+
+
             // get graph current user data
             var graphApiUser = await _graphServiceClient.Me.Request().GetAsync();
 
@@ -92,7 +105,11 @@ namespace LandingPage.Controllers
                 SubscriptionId = resolvedSubscription.Id.ToString(),
                 TenantId = resolvedSubscription.Subscription.Beneficiary.TenantId.ToString(),
                 PurchaseIdToken = token
+                
             };
+
+            this.ViewData.Add("urlGo", myThisStringBuild);
+            this.ViewData.Add("httpClient", postedHttpClient);
 
             return View(model);
         }

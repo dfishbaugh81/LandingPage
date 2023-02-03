@@ -9,18 +9,18 @@
     <UserSecretsId>aspnet-src-AB80577D-043B-4AD3-AD76-E46A48E72E12</UserSecretsId>
     <StartupObject>LandingPage.Program</StartupObject>
     <ApplicationInsightsResourceId>/subscriptions/8cfb99d7-3e7e-4e37-8550-2e768b245935/resourceGroups/marketplacedoality/providers/microsoft.insights/components/doality</ApplicationInsightsResourceId>
-    <UseWindowsForms>True</UseWindowsForms>
+    <UseWindowsForms>False</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
     <RepositoryUrl>https://github.com/dfishbaugh81/LandingPage</RepositoryUrl>
 
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>True</Optimize>
+    <Optimize>False</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <Optimize>False</Optimize>
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AdvancedStringBuilder" Version="0.1.0" />
     <PackageReference Include="App.Metrics.Abstractions" Version="4.3.0" />
     <PackageReference Include="Marketplace.SaaS.Client" Version="1.0.0" />
     <PackageReference Include="Microsoft.ApplicationInsights" Version="2.22.0-beta1" />
@@ -45,6 +46,7 @@
     <PackageReference Include="Microsoft.Identity.Web" Version="1.16.1" />
     <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="1.16.1" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.16.1" />
+    <PackageReference Include="StringBuilder.ToTemplateBuilder" Version="1.0.1" />
 
 	<PackageReference Include="System.Security.Cryptography.ProtectedData" Version="7.0.0">
 	  <GeneratePathProperty>True</GeneratePathProperty>
