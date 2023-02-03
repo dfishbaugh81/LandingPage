@@ -36,7 +36,7 @@ else
 
         <div style="text-align: left">
             <ul>
-                @while (Model.FulfillmentStatus == Microsoft.Marketplace.SaaS.Models.SubscriptionStatusEnum.PendingFulfillmentStart)
+                @if (Model.FulfillmentStatus == Microsoft.Marketplace.SaaS.Models.SubscriptionStatusEnum.PendingFulfillmentStart)
                 {
                        
                     <li>
